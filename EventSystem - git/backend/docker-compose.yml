@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    container_name: event_pro_db
+    environment:
+      - POSTGRES_DB=eventdb
+      - POSTGRES_USER=eventuser
+      - POSTGRES_PASSWORD=eventpass
+    ports:
+      - "54321:5432"  # تغییر به 5450 برای رفع مشکل ویندوز
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    restart: always
